@@ -5,6 +5,7 @@ import com.opencsv.CSVReader;
 import com.opencsv.bean.ColumnPositionMappingStrategy;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
+import org.apache.commons.collections.functors.IfClosure;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -42,14 +43,14 @@ public class Main {
         String json = readString("src/main/Data/JsonXML.txt");
         List<Employee> list = jsonToList(json);
 
-        for (Employee e : list){
+        for (Employee e : list) {
             System.out.println(e.toString());
         }
         ///---
 
     }
 
-    private static List<Employee> jsonToList(String json) {
+    public static List<Employee> jsonToList(String json) {
 
         List<Employee> employees = new ArrayList<>();
 
@@ -205,13 +206,25 @@ public class Main {
 
     }
 
-    private static String listToJson(List<Employee> list) {
+    public static String listToJson(List<Employee> list) {
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
         Type listType = new TypeToken<List<Employee>>() {
         }.getType();
         String json = gson.toJson(list, listType);
         return json;
+    }
+
+    public static boolean fileExist(String path) {
+
+        File myFile = new File(path);
+
+        if (myFile.exists()) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
 }
