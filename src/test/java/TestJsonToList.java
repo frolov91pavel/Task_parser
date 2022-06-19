@@ -14,8 +14,6 @@ public class TestJsonToList {
     public void testJsonToList() {
 
         final String original = "[{\"id\":1,\"firstName\":\"John\",\"lastName\":\"Smith\",\"country\":\"USA\",\"age\":25},{\"id\":2,\"firstName\":\"Inav\",\"lastName\":\"Petrov\",\"country\":\"RU\",\"age\":23}]";
-        List<Employee> listResult = Main.jsonToList(original);
-
 
         Employee employee1 = new Employee(1, "John", "Smith", "USA", 25);
         Employee employee2 = new Employee(2, "Inav", "Petrov", "RU", 23);
@@ -23,6 +21,8 @@ public class TestJsonToList {
         List<Employee> listExpected = new ArrayList<Employee>();
         listExpected.add(employee1);
         listExpected.add(employee2);
+
+        List<Employee> listResult = Main.jsonToList(original);
 
         Assert.assertEquals(listExpected.toString(), listResult.toString());
 
