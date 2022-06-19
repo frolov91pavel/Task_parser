@@ -13,7 +13,7 @@ public class TestJsonToList {
     @Test
     public void testJsonToList() {
 
-        final String original = "[{\"id\":1,\"firstName\":\"John1\",\"lastName\":\"Smith\",\"country\":\"USA\",\"age\":25},{\"id\":2,\"firstName\":\"Inav\",\"lastName\":\"Petrov\",\"country\":\"RU\",\"age\":23}]";
+        final String original = "[{\"id\":1,\"firstName\":\"John\",\"lastName\":\"Smith\",\"country\":\"USA\",\"age\":25},{\"id\":2,\"firstName\":\"Inav\",\"lastName\":\"Petrov\",\"country\":\"RU\",\"age\":23}]";
         List<Employee> listResult = Main.jsonToList(original);
 
 
